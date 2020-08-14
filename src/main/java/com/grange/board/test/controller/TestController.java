@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.grange.board.test.service.TestService;
 
 
+
 @RestController
 @RequestMapping(value = "/grange")
 public class TestController {
@@ -55,4 +56,6 @@ public class TestController {
 		
 		return operand1+operand2;
 	}
+	
+	
 }

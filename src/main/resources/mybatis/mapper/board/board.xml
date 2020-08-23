@@ -12,4 +12,42 @@
       FROM board
    </select>
 
+	<select id="getBoard" resultType="BoardVO" parameterType="map">
+	select id as id
+		, title as title
+		, content as content
+		, reg_id as regId
+		, reg_dtt as regDtt
+	from board
+	where id=#{id}
+	</select>
+	
+	<insert id="insertBoard" parameterType="BoardVO">
+	insert into board(
+		title
+		,content
+		,reg_id
+		,reg_dtt
+		)
+		values(
+		#{title}
+		,#{content}
+		,#{regId}
+		,now()
+		)
+	</insert>
+	
+	<update id="updateBoard" parameterType="BoardVO">
+	update board
+	set title =#{title}
+	, content = #{content}
+	where id = #{id}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="map">
+	
+	delete from board 
+	where id= #{id}
+	</delete>
+	
 </mapper>

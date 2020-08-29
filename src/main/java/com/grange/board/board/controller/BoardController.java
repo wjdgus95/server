@@ -18,7 +18,7 @@ import com.grange.board.board.vo.BoardVO;
 import com.grange.board.test.service.TestService;
 
 @RestController
-@RequestMapping(value ="/board")
+@RequestMapping(value ="/api/board")
 public class BoardController {
 	@Autowired
 	private BoardService boardService;

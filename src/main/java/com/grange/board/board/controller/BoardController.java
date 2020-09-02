@@ -50,5 +50,4 @@ public class BoardController {
 			@PathVariable(name="id",required=true)int id) {
 			return this.boardService.deleteBoard(id);
 	}
-	
 }

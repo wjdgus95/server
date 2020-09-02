@@ -78,5 +78,14 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+
+	@GetMapping(value = "/delete/{id}")
+	public String delete(
+	      @PathVariable(name = "id", required = true) int id) {
+		
+		this.boardService.deleteBoard(id);
+	   
+	   return "redirect:/board/list";
+	}
 	
 }

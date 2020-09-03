@@ -1,5 +1,6 @@
 package com.grange.board;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +17,12 @@ class GrangeBoardApplicationTests {
 	void contextLoads() {
 //		BoardVO board=new BoardVO();
 //		board.setTitle(title);
+		
+		String pw="wjdguswjdal";
+		System.out.println("origin"+pw);
+		
+		pw=DigestUtils.sha256Hex(pw);
+		System.out.println(pw);
 	}
 	
 

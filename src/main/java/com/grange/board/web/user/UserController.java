@@ -1,5 +1,8 @@
 package com.grange.board.web.user;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +24,7 @@ public class UserController {
 	 */
 	@GetMapping(value = "/login")
 	public String loginForm() {
-	   return "user/login";
+	   return "pages/user/login";
 	}
 
 	/**
@@ -30,7 +33,7 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping(value = "/login")
-	public String postLogin(UserVO user) {
+	public String postLogin(UserVO user, HttpServletRequest req) {
 	   
 	   String id = user.getId();
 	   String pw = user.getPw();
@@ -38,9 +41,14 @@ public class UserController {
 	   UserVO result = this.userService.getUser(id, pw);
 	   
 	   if(result != null) {
+		   //성공
+		  HttpSession session = req.getSession();
+		  session.setAttribute("user", result);
+		  
 	      return "redirect:/board/list";
 	   }
 	   else {
+		   //실패
 	      return "redirect:/user/login";
 	   }
 	}

@@ -25,7 +25,7 @@ public class BoardController {
 	//동작하는지 확인
 	@GetMapping(value = "/index")
 	public String index() {
-		return "index";
+		return "pages/index";
 	}
 	
 	@GetMapping(value = "/list")
@@ -35,7 +35,13 @@ public class BoardController {
 		model.addAttribute("boards",boards);
 		model.addAttribute("test","eeeeewewe");//test용
 		
-		return "board/list";
+		/*if(true) {
+			return "redirect:/user/login";
+		}*/
+		
+		System.out.println("boardControllerList");
+		
+		return "pages/board/list";
 	}
 	
 	@GetMapping(value = "/detail/{id}")
@@ -56,7 +62,7 @@ public class BoardController {
 		BoardVO board= this.boardService.getBoard(id);
 		model.addAttribute("board",board);
 		
-		return "board/modify";
+		return "pages/board/modify";
 	}
 	
 	@PostMapping(value = "/modify")
@@ -67,7 +73,7 @@ public class BoardController {
 	
 	@GetMapping(value = "/write")
 	public String write() {
-		return "board/write";
+		return "pages/board/write";
 	}
 	
 	@PostMapping(value = "/write")

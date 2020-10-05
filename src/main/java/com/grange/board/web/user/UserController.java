@@ -53,4 +53,25 @@ public class UserController {
 	   }
 	}
 	
+	@GetMapping(value = "/logout")
+	public String logout(HttpServletRequest req) {
+		
+		HttpSession session = req.getSession();
+		session.invalidate();
+		
+		return "redirect:/user/login";
+	}
+	
+	@GetMapping(value = "/signup")
+	public String signup() {
+		return "pages/user/signup";
+	}
+	
+	@PostMapping(value = "signup")
+	public String signup(UserVO user) {
+		
+		this.userService.insertUser(user);
+		
+		return "redirect:/user/login";
+	}
 }

@@ -31,7 +31,11 @@
                <td th:text="${board.regId}"></td>
                <td th:text="${board.regDtt}"></td>
             </tr>
-         </tbody>         
+         </tbody>
+         <tfooter>
+         	<a th:href="@{?page={page}(page=${page-1})}">prev</a>
+			<a th:href="@{?page={page}(page=${page+1})}">next</a>
+         </tfooter>        
       </table>
    </div>
    <div class="row float-right">

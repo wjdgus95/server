@@ -49,8 +49,11 @@ public class BoardDao {
 		
 	   }
 	
-	public List<BoardVO> getBoards() {      
-	      return this.sqlSession.selectList("board.getBoards");
+	public List<BoardVO> getBoards(int page, int rows) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("page", page);
+		param.put("rows", rows);
+	      return this.sqlSession.selectList("board.getBoards", param);
 	   }
 	
 	public int insertBoard(BoardVO board) {

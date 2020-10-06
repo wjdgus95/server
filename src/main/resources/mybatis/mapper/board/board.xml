@@ -3,13 +3,15 @@
 
 <mapper namespace="board">
 
-   <select id="getBoards" resultType="BoardVO">
+   <select id="getBoards" parameterType = "map" resultType="BoardVO">
       SELECT id as id
          , title as title
          , content as content
          , reg_dtt as regDtt
          , reg_id as regId
       FROM board
+      ORDER BY id DESC
+      LIMIT (#{page} - 1) * #{rows}, #{rows}
    </select>
 
 	<select id="getBoard" resultType="BoardVO" parameterType="map">

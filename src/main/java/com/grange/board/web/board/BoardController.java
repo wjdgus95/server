@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.grange.board.board.service.BoardService;
@@ -29,11 +30,17 @@ public class BoardController {
 	}
 	
 	@GetMapping(value = "/list")
-	public String list(ModelMap model) {
+	public String list(ModelMap model
+			, @RequestParam(name = "page",defaultValue = "1")int page
+			, @RequestParam(name = "rows", defaultValue = "20")int rows) {
 		
-		List<BoardVO> boards = this.boardService.getBoards();
+		//final int page = 1;
+		//final int rows = 20;
+		
+		List<BoardVO> boards = this.boardService.getBoards(page,rows);
 		model.addAttribute("boards",boards);
 		model.addAttribute("test","eeeeewewe");//test용
+		model.addAttribute("page",page);
 		
 		/*if(true) {
 			return "redirect:/user/login";

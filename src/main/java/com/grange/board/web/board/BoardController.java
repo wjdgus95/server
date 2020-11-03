@@ -48,7 +48,7 @@ public class BoardController {
 		
 		System.out.println("boardControllerList");
 		
-		return "pages/board/list";
+		return "pages/board/list_ajax";
 	}
 	
 	@GetMapping(value = "/detail/{id}")

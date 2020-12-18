@@ -1,4 +1,4 @@
-package com.grange.board.board.vo;
+package com.grange.board.comment.vo;
 
 import java.util.Date;
 
@@ -9,13 +9,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-//식판
-public class BoardVO {
-	
+public class CommentVO {
 	private int id;
-	private String title;
+	private int boardId;
 	private String content;
 	private Date regDtt;
 	private String regId;
-	
 }

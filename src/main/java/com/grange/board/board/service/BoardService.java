@@ -34,4 +34,5 @@ public class BoardService {
    public int deleteBoard(int id) {
 	   return this.boardDao.deleteBoard(id);
    }
+   
 }

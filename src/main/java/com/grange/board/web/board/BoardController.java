@@ -57,7 +57,7 @@ public class BoardController {
 		BoardVO board= this.boardService.getBoard(id);
 		
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("board/detail");
+		mav.setViewName("pages/board/detail");
 		mav.addObject("board",board);
 		
 		return mav;
